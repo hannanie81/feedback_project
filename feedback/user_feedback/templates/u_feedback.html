@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(234, 255, 0);
+        }
+    </style>
+</head>
+<body>
+    <h1>USER FEEDBACK</h1>
+    <br>
+    <form  action="u_feedback" method="post">
+        {% csrf_token %}
+            Name: <input name="name" type="text">
+            <br><br>
+            Text: <input name="text" type="text">
+            <br><br>
+            <input type="submit" value="SAVE">
+    </form>
+    <br><br>
+Feedback
+<br><br>
+{% for data in allfeedback %}
+    
+   <input type="text" value="{{data.text}}"> <br>
+    Feedback by: {{data.name}}
+    <br><br>
+{% endfor %}
+
+</body>
+</html>
